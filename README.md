@@ -7,8 +7,8 @@
 なお、このアプリは [Vite](https://ja.vite.dev/) を用いた React + TypeScript 環境です。下記コマンドで開発サーバーが起動します。
 
 ```bash
-$ npm install
-$ npm run dev
+npm install
+npm run dev
 ```
 
 ## 準備
@@ -20,11 +20,11 @@ $ npm run dev
 
 ## Deisgn Token
 
-デザイントークンは CSS など React 環境以外でも使用できます。
+デザイントークンは Serendie UI に同梱されますが、単独で使用することもできます。単独で使用する場合は、CSS 環境など React 以外でも使用できます。
 
 ### インストール
 
-```
+```bash
 npm install @serendie/design-token
 ```
 
@@ -42,7 +42,7 @@ h1 {
 }
 ```
 
-#### テーミング
+### テーミング
 
 html タグなどに、`data-panda-theme`属性 (konjo, asagi, sumire, tsutusji, kurikawa) を付与することで、CSS 環境であってもテーマを切り替えることができます。各テーマについては[こちら](https://serendie.design/foundations/theming/)を参照してください。
 
@@ -50,4 +50,22 @@ html タグなどに、`data-panda-theme`属性 (konjo, asagi, sumire, tsutusji,
 <html data-panda-theme="asagi"></html>
 ```
 
-### JS 内で使う (CSS-in-JS)
+## Serendie Symbols
+
+React 環境において SVG コンポーネントとして Serendie Symbols を利用できます。Serendie Symbols のみ単独で使用できます。
+
+### インストール
+
+```bash
+npm install @serendie/symbols
+```
+
+### 使い方
+
+Serendie Symbols の一覧は[こちら](https://serendie.design/foundations/icon-list/)を参照してください。アイコン名を name props にて指定してください。アイコンには塗り (filled) と線 (outlined)のバリエーションがあり、variant props にて指定できます。
+
+```typescript
+import { SerendieSymbol } from "@serendie/symbols";
+
+<SerendieSymbol name="home" variant="outlined" size={24} color="#000000" />;
+```
