@@ -1,4 +1,15 @@
-# SDS Bootcamp
+# SDS Bootcamp App
+
+## このリポジトリについて
+
+ブートキャンプ時のデモ用に、素朴な React アプリケーション環境を用意し、SDS Packages を使う事前準備を行ったものです。SDS Packages を使う際のサンプルアプリケーションとして参考にしてください。
+
+なお、このアプリは [Vite](https://ja.vite.dev/) を用いた React + TypeScript 環境です。下記コマンドで開発サーバーが起動します。
+
+```bash
+$ npm install
+$ npm run dev
+```
 
 ## 準備
 
