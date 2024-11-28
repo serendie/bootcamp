@@ -111,21 +111,108 @@ import { Button } from "@serendie/ui";
 <html data-panda-theme="asagi"></html>
 ```
 
-### カスタマイズ (高度な使い方)
+> [!TIP]
+> ここまでがSerendie Packagesの基本的な使い方です。
+> より高度な使い方は下記を参考にしてください。
 
-インタラクションやスタイルを、各アプリごとにカスタマイズすることもできます。
-まず、Serendie UIは内部的に下記のライブラリを使用しています。
+## Serendie UIのカスタマイズ
 
-- スタイリング: [Panda CSS](https://panda-css.com/)
-- ヘッドレスUI: [Ark UI](https://ark-ui.com/)
+あるコンポーネントのpaddingやmarginを微修正したいなど、Serendie UIのスタイルをカスタム (上書き) したいシーンでは、アプリ側にスタイリングライブラリ (CSS-in-JS系など) を導入してください。
 
-これらを学ぶことでより深くSerendie UIを使うことができます。ここでは頻度が高いことが予想されるスタイルのカスタム (上書き) について紹介します。
+どのスタイリングライブラリでも併用は可能ですが、Serendie UIの内部でも使用している[Panda CSS](https://panda-css.com/)を推奨しています。
 
-#### Panda CSSの導入
+### Panda CSSの導入
 
-その他のCSS in JSライブラリでもスタイルの上書きは可能ですが、内部的に使用していることからPanda CSSを推奨しています。
+[アプリの環境に合わせて導入](https://panda-css.com/docs/overview/getting-started)が必要になりますが、要点を下記に記載します。
 
 ```bash
 npm install -D @pandacss/dev
 npx panda init --postcss
+```
+
+上記コマンドを実行したうえで、package.jsonに下記を追加してください。
+
+```diff
+{
+  "scripts": {
++   "panda": "panda",
++   "prepare": "panda codegen",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  }
+}
+```
+
+また、先のコマンドで生成された `panda.config.ts` に下記を追記することで、Panda CSSの[Preset](https://panda-css.com/docs/customization/presets)とSDSのデザイントークンを繋ぎこみます。
+
+```diff
++import { SerendiePreset } from "@serendie/ui";
+
+export default defineConfig({
++  jsxFramework: "react",
++  presets: [SerendiePreset],
+});
+```
+
+その後、Panda CSSが提供するユーティリティやコンポーネントを生成するために以下のコマンドを実行してください。
+
+```bash
+npm run panda codegen
+
+```
+
+TypeScript環境においては型情報を参照するために `tsconfig.json` に以下の設定を追加してください。
+
+```diff
+{
++ "include":  ["src", "styled-system"]
+}
+```
+
+### 使い方
+
+下記のように、Panda CSSの提供するユーティリティ (`css`) やレイアウトコンポーネント (`VStack`) を使いつつ、デザイントークンや、Serendie UI、Serendie Symbolsを組み合わせて画面をスタイリングすることができます。
+
+```typescript
+import { Button, TextField } from "@serendie/ui";
+import { VStack } from "../styled-system/jsx";
+import { css } from "../styled-system/css";
+import { SerendieSymbol } from "@serendie/symbols";
+
+function App() {
+  return (
+    <main
+      className={css({
+        padding: "sd.system.dimension.spacing.extraLarge",
+        "& h1": {
+          textStyle: "sd.system.typography.title.large_compact",
+          marginBottom: "sd.system.dimension.spacing.extraLarge",
+        },
+      })}
+    >
+      <h1>SDS Bootcamp</h1>
+      <VStack
+        gap={"sd.system.dimension.spacing.extraLarge"}
+        alignItems="flex-start"
+      >
+        <TextField label="メールアドレス" placeholder="email" />
+        <TextField label="パスワード" placeholder="password" />
+        <Button
+          size="medium"
+          className={css({ width: "100%" })}
+          leftIcon={<SerendieSymbol name="login" />}
+        >
+          ログイン
+        </Button>
+        <Button styleType="ghost" size="small" className={css({ px: 0 })}>
+          パスワードをお忘れですか？
+        </Button>
+      </VStack>
+    </main>
+  );
+}
+
+export default App;
 ```

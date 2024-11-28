@@ -1,10 +1,9 @@
 import { defineConfig } from "@pandacss/dev";
-import pandaPreset from "@pandacss/preset-panda";
 import { SerendiePreset } from "@serendie/ui";
 
 export default defineConfig({
   jsxFramework: "react",
-  presets: [pandaPreset, SerendiePreset],
+  presets: [SerendiePreset],
   // Whether to use css reset
   preflight: true,
 
