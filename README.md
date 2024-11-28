@@ -17,3 +17,31 @@ $ npm run dev
 2. [こちらのドキュメント](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-token-classic-%E3%81%AE%E4%BD%9C%E6%88%90)を参照し、[Personal Access Token (Classic)](https://github.com/settings/tokens/new)から、Access Token を作成する
 3. Token 作成時の Scope は、「read:packages」を選択する
 4. 作成したトークンを、[.npmrc](https://github.com/serendie/bootcamp/blob/main/.npmrc#L1)に記載する (`YOUR_GITHUB_TOKEN`を置換)
+
+## Deisgn Token
+
+デザイントークンは CSS など React 環境以外でも使用できます。
+
+### インストール
+
+```
+npm install @serendie/design-token
+```
+
+### CSS 内で使う
+
+デザイントークンは CSS Variables として利用できます。
+下記のように import したうえで、`var()`で参照してください。
+
+```css
+@import "@serendie/design-token/tokens.css";
+```
+
+使用例
+
+```css
+h1 {
+  font-size: var(--sd-reference-typography-scale-expanded-large);
+  color: var(--sd-system-color-impression-primary);
+}
+```
