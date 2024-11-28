@@ -35,13 +35,19 @@ npm install @serendie/design-token
 
 ```css
 @import "@serendie/design-token/tokens.css";
-```
 
-使用例
-
-```css
 h1 {
   font-size: var(--sd-reference-typography-scale-expanded-large);
   color: var(--sd-system-color-impression-primary);
 }
 ```
+
+#### テーミング
+
+html タグなどに、`data-panda-theme`属性 (konjo, asagi, sumire, tsutusji, kurikawa) を付与することで、CSS 環境であってもテーマを切り替えることができます。各テーマについては[こちら](https://serendie.design/foundations/theming/)を参照してください。
+
+```html
+<html data-panda-theme="asagi"></html>
+```
+
+### JS 内で使う (CSS-in-JS)
