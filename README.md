@@ -69,3 +69,34 @@ import { SerendieSymbol } from "@serendie/symbols";
 
 <SerendieSymbol name="home" variant="outlined" size={24} color="#000000" />;
 ```
+
+## Serendie UI
+
+React 環境を前提としています。Design Token も同梱されるので同時インストールは不要です。
+
+### インストール
+
+```bash
+npm install @serendie/ui
+```
+
+### 準備
+
+rootのCSSに対して、次の2行を設定してください。
+
+1行目は、Serendie UIに対して、スタイルを適切に当てるためにカスケードレイヤーの指定をするもの、2行目は同梱のデザイントークンやデフォルトスタイルを読み込むものです。
+
+```css
+@layer reset, base, tokens, recipes, utilities;
+@import "@serendie/ui/styles.css";
+```
+
+### 使い方
+
+使いたいComponentをimportしたうえで、通常のReact Componentとして使用してください。各Componentが持つpropsについては、[ドキュメント](https://serendie.design/components/button/)や、[Storybook](https://storybook.serendie.design/?path=/story/components-button--medium)を参照してください。
+
+```typescript
+import { Button } from "@serendie/ui";
+
+<Button size="medium">Login</Button>
+```
