@@ -102,3 +102,30 @@ import { Button } from "@serendie/ui";
 
 <Button size="medium">Login</Button>
 ```
+
+### テーミング
+
+[デザイントークンの節で記載](https://github.com/serendie/bootcamp?tab=readme-ov-file#%E3%83%86%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0)の内容と同様です。htmlタグ等に `data-panda-theme` 属性を付与して、使用したいテーマ名(konjo, asagi, sumire, tsutusji, kurikawa)を指定してください。
+
+```html
+<html data-panda-theme="asagi"></html>
+```
+
+### カスタマイズ (高度な使い方)
+
+インタラクションやスタイルを、各アプリごとにカスタマイズすることもできます。
+まず、Serendie UIは内部的に下記のライブラリを使用しています。
+
+- スタイリング: [Panda CSS](https://panda-css.com/)
+- ヘッドレスUI: [Ark UI](https://ark-ui.com/)
+
+これらを学ぶことでより深くSerendie UIを使うことができます。ここでは頻度が高いことが予想されるスタイルのカスタム (上書き) について紹介します。
+
+#### Panda CSSの導入
+
+その他のCSS in JSライブラリでもスタイルの上書きは可能ですが、内部的に使用していることからPanda CSSを推奨しています。
+
+```bash
+npm install -D @pandacss/dev
+npx panda init --postcss
+```

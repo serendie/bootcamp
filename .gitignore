@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .npmrc
+
+## Panda
+styled-system
+styled-system-studio
