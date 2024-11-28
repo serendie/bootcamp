@@ -115,7 +115,7 @@ import { Button } from "@serendie/ui";
 > ここまでがSerendie Packagesの基本的な使い方です。
 > より高度な使い方は下記を参考にしてください。
 
-## Serendie UIのカスタマイズ
+## スタイリングライブラリと併用する
 
 あるコンポーネントのpaddingやmarginを微修正したいなど、Serendie UIのスタイルをカスタム (上書き) したいシーンでは、アプリ側にスタイリングライブラリ (CSS-in-JS系など) を導入してください。
 
