@@ -2,7 +2,7 @@
 
 ## このリポジトリについて
 
-ブートキャンプ時のデモ用に、素朴な React アプリケーション環境を用意し、SDS Packages を使い始める流れを記載したものです。SDS Packagesを手元で試す際にご利用ください。
+ブートキャンプのデモ用に素朴な React アプリケーション環境を用意し、SDS Packages を使い始める流れを記載したものです。SDS Packagesを手元で試す際にご利用ください。
 
 なお、このアプリは [Vite](https://ja.vite.dev/) を用いた React + TypeScript 環境です。下記コマンドで開発サーバーが起動します。
 
@@ -44,7 +44,7 @@ h1 {
 }
 ```
 
-### テーミング
+### カラーテーマ
 
 html タグなどに、`data-panda-theme`属性 (konjo, asagi, sumire, tsutusji, kurikawa) を付与することで、CSS 環境であってもテーマを切り替えることができます。各テーマについては[こちら](https://serendie.design/foundations/theming/)を参照してください。
 
@@ -103,7 +103,7 @@ import { Button } from "@serendie/ui";
 <Button size="medium">Login</Button>
 ```
 
-### テーミング
+### カラーテーマ
 
 [デザイントークンの節で記載](https://github.com/serendie/bootcamp?tab=readme-ov-file#%E3%83%86%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0)の内容と同様です。htmlタグ等に `data-panda-theme` 属性を付与して、使用したいテーマ名(konjo, asagi, sumire, tsutusji, kurikawa)を指定してください。
 
