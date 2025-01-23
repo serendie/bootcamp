@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@serendie/design-token": "^0.1.1",
+    "@serendie/sub-brand-tokens": "github:nagayama/example-subbrand",
     "@serendie/symbols": "^0.0.4",
     "@serendie/ui": "^0.1.1",
     "react": "^18.3.1",
