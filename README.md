@@ -13,7 +13,8 @@ npm run dev
 
 ## 準備
 
-プライベートベータ期間中 (2025年2月迄) は、プライベート状態で運用しているため、利用には下記の手順が必要になります。
+~プライベートベータ期間中 (2025年2月迄) は、プライベート状態で運用しているため、利用には下記の手順が必要になります。~
+以下の手順は一般公開に伴い不要になりました。npmレジストリにパッケージを移行したため、`.npmrc`の設定は不要です。
 
 1. GitHub チームに参加する
 2. [こちらのドキュメント](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-token-classic-%E3%81%AE%E4%BD%9C%E6%88%90)を参照し、[Personal Access Token (Classic)](https://github.com/settings/tokens/new)から、Access Token を作成する
