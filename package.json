@@ -12,9 +12,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@serendie/design-token": "^0.2.1",
-    "@serendie/symbols": "^0.0.10",
-    "@serendie/ui": "^0.1.7",
+    "@serendie/design-token": "^0.2.15",
+    "@serendie/symbols": "^0.1.0",
+    "@serendie/ui": "^0.1.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
