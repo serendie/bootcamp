@@ -11,16 +11,6 @@ npm install
 npm run dev
 ```
 
-## 準備
-
-~プライベートベータ期間中 (2025年2月迄) は、プライベート状態で運用しているため、利用には下記の手順が必要になります。~
-以下の手順は一般公開に伴い不要になりました。npmレジストリにパッケージを移行したため、`.npmrc`の設定は不要です。
-
-1. GitHub チームに参加する
-2. [こちらのドキュメント](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-token-classic-%E3%81%AE%E4%BD%9C%E6%88%90)を参照し、[Personal Access Token (Classic)](https://github.com/settings/tokens/new)から、Access Token を作成する
-3. Token 作成時の Scope は、「read:packages」を選択する
-4. 作成したトークンを、[.npmrc](https://github.com/serendie/bootcamp/blob/main/.npmrc#L1)に記載する (`YOUR_GITHUB_TOKEN`を置換)
-
 ## Deisgn Token
 
 デザイントークンは Serendie UI に同梱されますが、単独で使用することもできます。単独で使用する場合は、CSS 環境など React 以外でも使用できます。
@@ -34,7 +24,7 @@ npm install @serendie/design-token
 ### CSS 内で使う
 
 デザイントークンは CSS Variables として利用できます。
-下記のように import したうえで、`var()`で参照してください。
+index.cssについて、下記のように import したうえで、`var()`で参照してください。
 
 ```css
 @import "@serendie/design-token/tokens.css";
@@ -47,7 +37,7 @@ h1 {
 
 ### カラーテーマ
 
-html タグなどに、`data-panda-theme`属性 (konjo, asagi, sumire, tsutusji, kurikawa) を付与することで、CSS 環境であってもテーマを切り替えることができます。各テーマについては[こちら](https://serendie.design/foundations/theming/)を参照してください。
+html タグなどに、`data-panda-theme`属性 (konjo, asagi, sumire, tsutusji, kurikawa) を付与することで、CSS 環境であってもテーマを切り替えることができます。index.htmlに、本記載があるため、テーマカラーを切り替えてみてください。各テーマについては[こちら](https://serendie.design/foundations/theming/)を参照してください。
 
 ```html
 <html data-panda-theme="asagi"></html>
@@ -65,7 +55,7 @@ npm install @serendie/symbols
 
 ### 使い方
 
-Serendie Symbols の一覧は[こちら](https://serendie.design/foundations/icon-list/)を参照してください。アイコン名を name props にて指定してください。アイコンには塗り (filled) と線 (outlined)のバリエーションがあり、variant props にて指定できます。
+Serendie Symbols の一覧は[こちら](https://serendie.design/foundations/icon-list/)を参照してください。アイコン名を name props にて指定してください。アイコンには塗り (filled) と線 (outlined)のバリエーションがあり、variant props にて指定できます。例えば、App.tsxで動きを確認してみてください。
 
 ```typescript
 import { SerendieSymbol } from "@serendie/symbols";
@@ -85,7 +75,7 @@ npm install @serendie/ui
 
 ### 準備
 
-rootのCSSに対して、次の2行を設定してください。
+rootのCSS〔今回の場合index.css〕に対して、次の2行を設定してください。　
 
 1行目は、Serendie UIに対して、スタイルを適切に当てるためにカスケードレイヤーの指定をするもの、2行目は同梱のデザイントークンやデフォルトスタイルを読み込むものです。
 
@@ -93,6 +83,7 @@ rootのCSSに対して、次の2行を設定してください。
 @layer reset, base, tokens, recipes, utilities;
 @import "@serendie/ui/styles.css";
 ```
+ちなみに、cssはimportの順番に依存して動きが変わるため、この2行の順番は守って下さい。
 
 ### 使い方
 
